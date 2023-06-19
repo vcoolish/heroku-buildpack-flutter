@@ -53,7 +53,7 @@ if [ -n "$FLUTTER_VERSION" ]; then
   # Check if the FLUTTER_VERSION is the same with the installed one.
   if [ "$FLUTTER_VERSION" != "$FLUTTER_INSTALLED_VERSION" ]; then
     print "Installing Flutter SDK version : $FLUTTER_VERSION"
-    git -C "flutter/bin/flutter" checkout $FLUTTER_VERSION
+    git -C "flutter" checkout $FLUTTER_VERSION
   fi
   rm flutter.json
 
