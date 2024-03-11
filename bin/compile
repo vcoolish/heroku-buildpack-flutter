@@ -116,7 +116,7 @@ fi
 # Is taken from my Github repo because some variables need to be changed every run
 # like PORT from environment.
 
-if [ -d "$CACHE_DIR/.pub-cache/" ]; then
+if [ "$DHTTP_CLEANUP" != true ]; then
   print "dhttpd Found in cache. Restoring."
   cp -R $CACHE_DIR/.pub-cache/* $PUB_CACHE
 else
