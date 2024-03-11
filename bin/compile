@@ -116,17 +116,12 @@ fi
 # Is taken from my Github repo because some variables need to be changed every run
 # like PORT from environment.
 
-if [ "$DHTTP_CLEANUP" != true ]; then
-  print "dhttpd Found in cache. Restoring."
-  cp -R $CACHE_DIR/.pub-cache/* $PUB_CACHE
-else
-  print "Getting dhttpd to run web service."
-  $BUILD_DIR/dart-sdk/bin/dart pub global activate -sgit https://github.com/vcoolish/dhttpd.git | indent
+print "Getting dhttpd to run web service."
+$BUILD_DIR/dart-sdk/bin/dart pub global activate -sgit https://github.com/vcoolish/dhttpd.git | indent
 
-  print "Getting dhtppd to run web service."
-  mkdir -p $CACHE_DIR/.pub-cache/
-  cp -R $PUB_CACHE/* $CACHE_DIR/.pub-cache/
-fi
+print "Getting dhtppd to run web service."
+mkdir -p $CACHE_DIR/.pub-cache/
+cp -R $PUB_CACHE/* $CACHE_DIR/.pub-cache/
 
 # Moving to the build, after running the compile. All will be deleted and removed to app directory.
 # Copying the result, the files will be kept in storage.
